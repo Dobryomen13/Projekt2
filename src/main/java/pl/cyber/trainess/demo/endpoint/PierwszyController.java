@@ -40,7 +40,6 @@ public class PierwszyController {
     User PersonDTO      <-> Server Person <-> DB PersonEntity
          PersonRequest
      */
-
     // Zadanie: Utworzyc 2 obiekty
     // 1.PersonDTO, ktory bedzie przekazywany dla uzytkownika
     // 2.Person jako obiekt wewnetrzny aplikacji
