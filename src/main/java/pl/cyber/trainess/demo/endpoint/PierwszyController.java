@@ -35,7 +35,6 @@ public class PierwszyController {
         service.createPerson(request);
     }
 
-
     /*
     User PersonDTO      <-> Server Person <-> DB PersonEntity
          PersonRequest
