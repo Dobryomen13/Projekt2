@@ -1,6 +1,8 @@
 package pl.cyber.trainess.demo.service;
 
+import groovyjarjarantlr4.v4.runtime.misc.IntegerList;
 import org.springframework.stereotype.Service;
+import pl.cyber.trainess.demo.dto.IntegerListRequest;
 import pl.cyber.trainess.demo.dto.LiteryDTO;
 import pl.cyber.trainess.demo.dto.OneStringRequest;
 import pl.cyber.trainess.demo.dto.StringRequest;
@@ -88,4 +90,35 @@ public class BasicsService {
         return wynik;
     }
 
+    public String sumaLiczbPomiedzy(final Integer a, final Integer b) {
+        Integer wynik =0;
+
+        if (a > b) {
+            throw new RuntimeException("Wartosc parametru 'a' powinna byc mniejsza od wartosci 'b' ");
+        }
+
+        for(int i = a; i<=b; i++){
+            wynik += i;
+
+        }
+        return "Wynik dodawania liczb pomiedzy a: " + a + " oraz b: " + b +" to: " + wynik;
+    }
+
+    public String zadanie8(final IntegerListRequest request) {
+
+        List<Integer> listaUjemnych = new ArrayList<>();
+        Integer sumaDodatnich = 0;
+
+        for (Integer element:
+                request.getIntList()) {
+            if (element< 0) {
+                listaUjemnych.add(element);
+            } else {
+                sumaDodatnich += element;
+            }
+
+        }
+
+        return listaUjemnych + " oraz suma liczb dodatnich wynosi" + sumaDodatnich;
+    }
 }

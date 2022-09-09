@@ -1,8 +1,11 @@
 package pl.cyber.trainess.demo.endpoint;
 
+import groovyjarjarantlr4.v4.runtime.misc.IntegerList;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import pl.cyber.trainess.demo.dto.IntegerListRequest;
 import pl.cyber.trainess.demo.dto.OneStringRequest;
+import pl.cyber.trainess.demo.dto.RownanieKwRequest;
 import pl.cyber.trainess.demo.service.BasicsService;
 import pl.cyber.trainess.demo.service.KalkulatorSrevice;
 import pl.cyber.trainess.demo.service.ZnajdzService;
@@ -244,5 +247,46 @@ restowym nie doszło do jej modyfikacji.
     // POST, BodyRequest
     //KalkulatorService
     //endregion
+
+    //zadanie 7
+    @GetMapping("/suma-liczb")
+    public String sumaLiczbPomiedzy(
+            @RequestParam("a") final Integer a,
+            @RequestParam("b") final Integer b
+    ) {
+        return basicsService.sumaLiczbPomiedzy(a,b);
+    }
+
+    //zadanie 8
+
+    @PostMapping("/liczby")
+    public String zadanie8(
+            @RequestBody final IntegerListRequest request
+            ) {
+        return basicsService.zadanie8(request);
+    }
+
+    @GetMapping("/rownanieKwadratowe/{a}/{b}/{c}")
+    public String rownanieKwadratowe(
+            @PathVariable("a") final Integer a,
+            @PathVariable("b") final Integer b,
+            @PathVariable("c") final Integer c
+    ) {
+        return kalkulatorSrevice.rownanieKwadratowe(a,b,c);
+    }
+
+    @PostMapping("/rownanieKwadratowe-b")
+    public String rownanieKwadratowe(
+            @RequestBody final RownanieKwRequest request
+    ) {
+        return kalkulatorSrevice.rownanieKwadratowe(request);
+    }
+
+    @PostMapping("/rownanieKwadratowe-b-2miejsca")
+    public String rownanieKwadratowe2miejsca(
+            @RequestBody final RownanieKwRequest request
+    ) {
+        return kalkulatorSrevice.rownanieKwadratowe2miejsca(request);
+    }
 
 }
