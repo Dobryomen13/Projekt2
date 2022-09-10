@@ -289,4 +289,6 @@ restowym nie doszło do jej modyfikacji.
         return kalkulatorSrevice.rownanieKwadratowe2miejsca(request);
     }
 
+    // 10 zadanie
+
 }
