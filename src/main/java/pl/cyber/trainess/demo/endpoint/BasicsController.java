@@ -4,6 +4,7 @@ import groovyjarjarantlr4.v4.runtime.misc.IntegerList;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import pl.cyber.trainess.demo.dto.IntegerListRequest;
+import pl.cyber.trainess.demo.dto.IntegerRequest;
 import pl.cyber.trainess.demo.dto.OneStringRequest;
 import pl.cyber.trainess.demo.dto.RownanieKwRequest;
 import pl.cyber.trainess.demo.service.BasicsService;
@@ -290,5 +291,83 @@ restowym nie doszło do jej modyfikacji.
     }
 
     // 10 zadanie
+    /*
+    za pomoca istrukcji petli for dla danych wartosci x zmieniaacych sie od 0 do 10 obliczyc wartosc funkcji y=3x
+     */
+
+    @GetMapping("/zadanie10a")
+    public String zadanie10a() {
+        return kalkulatorSrevice.zadanie10a();
+    }
+
+    @GetMapping("/zadanie10b")
+    public String zadanie10b() {
+        return kalkulatorSrevice.zadanie10b();
+    }
+
+    @GetMapping("/zadanie10c")
+    public String zadanie10c() {
+        return kalkulatorSrevice.zadanie10c();
+    }
+
+    @PostMapping("/zadanie10d")
+    public String zadanie10d(@RequestBody IntegerRequest request){
+        return kalkulatorSrevice.zadanie10d(request);
+    }
+
+    @PostMapping("/zadanie10e")
+    public String zadanie10e(@RequestBody IntegerRequest request){
+        return kalkulatorSrevice.zadanie10e(request);
+    }
+
+    @PostMapping("/zadanie10f")
+    public String zadanie10f(@RequestBody IntegerRequest request){
+        return kalkulatorSrevice.zadanie10f(request);
+    }
+
+    @PostMapping("/zadanie12for")
+    public String zadanie12for(@RequestBody IntegerRequest request){
+        return kalkulatorSrevice.zadanie12for(request);
+    }
+
+    //zadanie 11a
+    /*
+    napisac program, ktory przekaze przy pomocy petli for przekaze nam wyniki tabliczki mnozenia od 1 do 100
+    Potrzebujem 2 petle for
+    Parametr 1-10
+     */
+
+    @GetMapping("/zadanie11a")
+    public String zadanie11a() {
+        return kalkulatorSrevice.zadanie11a();
+    }
+
+    @GetMapping("/zadanie11aa")
+    public String zadanie11aa() {
+        return kalkulatorSrevice.zadanie11aa();
+    }
+
+    @GetMapping("/zadanie11b")
+    public String zadanie11b() {
+        return kalkulatorSrevice.zadanie11b();
+    }
+
+    @GetMapping("/zadanie11b-rozw")
+    public String zadanie11brozw() {
+        return kalkulatorSrevice.zadanie11brozw();
+    }
+
+    @GetMapping("/zadanie11c")
+    public String zadanie11c() {
+        return kalkulatorSrevice.zadanie11c();
+    }
+
+    @GetMapping("/zadanie11c-rozw")
+    public String zadanie11cRozw() {
+        return kalkulatorSrevice.zadanie11cRozw();
+    }
+
+
+
 
 }
