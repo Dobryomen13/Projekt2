@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: init
+      author: kk
+      changes:
+        - sqlFile:
+            path: db/changelog/schema/init.sql
+#              path: ..\db\changelog\schema\init.sql #ewentualnie dla Windowsa

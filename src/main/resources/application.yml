@@ -3,4 +3,57 @@ server:
   servlet:
     context-path: /demo
 
+spring:
+  datasource:
+    url: jdbc:postgresql://185.204.217.194:5432/kk_db
+    username: karolinak
+    password: kk-12345
+
+    # url: jdbc:postgresql://185.204.217.194:5432/[nasza baza danych]
+    # localhost - baza danych na lokalnych PC
+    # 127.0.0.1 - baza danych na lokalnych PC
+    # db.google.com - baza danych w serwerowni Google (zmyslony adres)
+    # Adres IP Publiczny - adres pod ktorym jest nasza baza danych
+
+    # spring: -> konfiguracja dla Spring Boot'a [ogólnie]
+    # datasource: -> konfiguracja pod połącznie do bazy danych
+    # url: -> podanie ścieżki do serwera BD
+    # jdbc: -> wskazanie użycia sterownika do połączeń z DB
+    # jdbc:postgresql:// -> info, który konkretnie sterownik używamy.
+    #                     Jednocześnie jest to informacja o protokole połączeniowym. Jak w przypadku stron WWW
+    #                     mamy protokół http:// lub https://
+    # 185.204.217.194:5432 -> adres IP, pod ktorym dostepna jest baza danych mozliwe konfiguracje zostaly podane powyzej
+    # 5432 -> standardowy port polaczeniowy do serwerow z baza danych PostgreSQL
+    # Info dodatkowe CIEKAWOSTKA:
+    #                 w przypadku stron WWW opartych o protokół http to 80
+    #                 w przypadku stron WWW opartych o protokół https to 443
+    # kk_db -> nazwa bazy danych do ktorej mamy dostep
+    # username: -> login uzytkownika do bazy danych
+    # password: -> haslo uzytkownika do bazy danych
+
+  jpa: #otwarcie kontekstu do konfiguracji JPA, czyli mechnizmu wspomagajacego tworzenie zapytan SQL do bazy
+    hibernate: #konfiguracja mechanizmu, ktory rozmawia z DB poprzez zapytania SQL
+      ddl-auto: validate # konfiguracja sprawdzajac strukture bazy danych
+      use-new-id-generator-mapping: true # mechanizm dzieki ktoremu bedziemy generowac wartosci dla ID (primary key) naszych tabel
+    database-platform: org.hibernate.dialect.PostgreSQLDialect #ustalenie jezyka rozmowy z baza danych
+    show-sql: true #konfiguracja, aby zapytania SQL z aplikacji zostaly wyswietlone w konsoli
+    properties:
+      hibernate:
+        format_sql: true #parametr ma za zadanie ladnie przedstawic zapytanie SQL w konsoli
+        temp:
+          use_jdbc_metadata_defaults: false
+    liquibase:
+      enabled: true # wlaczamy mechanizm liquibase, aby mogl za nas utworzyc strukture DB
+      drop-first: false #zanim uruchomi sie aplikacja to zostanie usunieta DB i ponownie zalozona
+
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: trace #dostepne opcje: INFO, TRACE, DEBUG
+            # INFO - bedzie podstawowa info o paramtrach w zapytaniu SQL
+            # TRACE - info o parametrach oraz ich wartosciach
+
     # komentarze po hashtagu
