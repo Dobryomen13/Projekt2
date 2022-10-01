@@ -122,6 +122,7 @@ public class BankomatService {
             throw new RuntimeException("Niedozwolona kwota wpłaty");
         }
 
+
         var atm = bankomatRepository.findById(id)
                 .orElseThrow(()-> new RuntimeException("Nie odnaleziono bankomatu"));
         atm.setSaldo(BigDecimal.valueOf(cash));
